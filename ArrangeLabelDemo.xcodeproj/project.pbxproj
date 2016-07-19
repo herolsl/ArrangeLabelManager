@@ -15,6 +15,7 @@
 		26762FD51D3DC0250099B511 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26762FD31D3DC0250099B511 /* LaunchScreen.storyboard */; };
 		26762FE01D3DC0250099B511 /* ArrangeLabelDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26762FDF1D3DC0250099B511 /* ArrangeLabelDemoTests.m */; };
 		26762FEB1D3DC0250099B511 /* ArrangeLabelDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26762FEA1D3DC0250099B511 /* ArrangeLabelDemoUITests.m */; };
+		26762FFA1D3DC0390099B511 /* ArrangeLabelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26762FF91D3DC0390099B511 /* ArrangeLabelManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		26762FE61D3DC0250099B511 /* ArrangeLabelDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArrangeLabelDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26762FEA1D3DC0250099B511 /* ArrangeLabelDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrangeLabelDemoUITests.m; sourceTree = "<group>"; };
 		26762FEC1D3DC0250099B511 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26762FF81D3DC0390099B511 /* ArrangeLabelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrangeLabelManager.h; sourceTree = "<group>"; };
+		26762FF91D3DC0390099B511 /* ArrangeLabelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrangeLabelManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				26762FC91D3DC0250099B511 /* AppDelegate.m */,
 				26762FCB1D3DC0250099B511 /* ViewController.h */,
 				26762FCC1D3DC0250099B511 /* ViewController.m */,
+				26762FF81D3DC0390099B511 /* ArrangeLabelManager.h */,
+				26762FF91D3DC0390099B511 /* ArrangeLabelManager.m */,
 				26762FCE1D3DC0250099B511 /* Main.storyboard */,
 				26762FD11D3DC0250099B511 /* Assets.xcassets */,
 				26762FD31D3DC0250099B511 /* LaunchScreen.storyboard */,
@@ -273,6 +278,7 @@
 				26762FCD1D3DC0250099B511 /* ViewController.m in Sources */,
 				26762FCA1D3DC0250099B511 /* AppDelegate.m in Sources */,
 				26762FC71D3DC0250099B511 /* main.m in Sources */,
+				26762FFA1D3DC0390099B511 /* ArrangeLabelManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ArrangeLabelDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.svenLiu.arrangeManager.ArrangeLabelDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,6 +434,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ArrangeLabelDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.svenLiu.arrangeManager.ArrangeLabelDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

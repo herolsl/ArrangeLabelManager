@@ -29,8 +29,7 @@
 //  按长度随机排列
 - (void)layoutLabelsWithDataSource:(NSArray *)datasource superView:(UIView *)superView {
 
-//- (void)sequenceWordsWithArray:(NSMutableArray *)arr {
-    
+    // startPoint 为起始位置点，随着新增Label而变化，标记每一个新增Label的其实位置点
     CGPoint startPoint = CGPointZero;
     startPoint = CGPointMake(SLLabelBoard, 80);
     
@@ -74,13 +73,12 @@
             return;
         }
         
-        
         // 剩余位置
         CGFloat spacing = superView.frame.size.width-SLLabelBoard*2-startPoint.x;
         NSInteger itemsCo = tempArr.count;
         NSInteger randomNum = 0;
         
-        // 匹配剩余位置，获取随机数
+        // 匹配剩余位置，获取随机数的随机范围
         for (NSInteger i = itemsCo-1; i>0; i--) {
             
             NSLog(@"空余位置：%@, 文本宽度：%@", @(spacing), labelWidthArr[i]);
@@ -89,25 +87,19 @@
                 break;
             }
         }
-//        NSInteger randomNum = SLRandom(itemsCo);
         NSLog(@"随机数：%@, 文本宽度：%@", @(randomNum), labelWidthArr[randomNum]);
 
         NSString *aRandomS = [self newString:tempArr[randomNum]];
         NSString *newRandomStr = [self.resultStr stringByAppendingString:aRandomS];
         
-//        if ([self lengthOfStringLabel:newRandomStr] <= CGRectGetWidth(superView.frame)-20) {
-        
         if (startPoint.x <= CGRectGetWidth(superView.frame)-SLLabelBoard*2) {
 
             self.resultStr = newRandomStr;
-            //            NSLog(@"中间结果：\n%@", self.resultStr);
-            
             
             UILabel *labe = [self getLabelWithString:tempArr[randomNum]];
             [self resetLabel:labe startPoint:startPoint];
             [superView addSubview:labe];
             startPoint = CGPointMake(CGRectGetMaxX(labe.frame)+SLLabelSpacingHorizontal, CGRectGetMinY(labe.frame));
-            
             
             [tempArr removeObjectAtIndex:randomNum];
             [labelWidthArr removeObjectAtIndex:randomNum];
@@ -116,14 +108,12 @@
                 NSLog(@"最终结果：\n%@", self.resultStr);
                 return;
             }
-//            if (CGRectGetWidth(superView.frame)-20-[self lengthOfStringLabel:newRandomStr] >= [self lengthOfStringLabel:tempArr[0]]) {
             
             if ((CGRectGetWidth(superView.frame)-SLLabelBoard-startPoint.x) >= ([self getLabelWithString:tempArr[0]].frame.size.width+SLLabelBoard)) {
     
                 continue;
             } else {
                 self.resultStr = [newRandomStr stringByAppendingString:@"\n"];
-                //                NSLog(@"中间结果：\n%@", self.resultStr);
                 CGPoint point = CGPointMake(10, startPoint.y+SLLabelHeight+SLLabelSpacingVertical);
                 startPoint = point;
 
@@ -144,12 +134,6 @@
     
 }
 
-- (NSString *)newString:(NSString *)str {
-    
-    NSString *newStr = [NSString stringWithFormat:@"----%@----", str];
-    return newStr;
-}
-
 - (CGFloat)lengthOfStringLabel:(NSString *)str {
     
     NSArray *strArr = [str componentsSeparatedByString:@"\n"];
@@ -162,6 +146,7 @@
     return CGRectGetWidth(strRect) + SLLabelInset*2;
 }
 
+// Label样式设置
 - (UILabel *)getLabelWithString:(NSString *)string {
     
     CGFloat length = [self lengthOfStringLabel:string];
@@ -181,5 +166,14 @@
     
     [lab setFrame:CGRectMake(strat.x, strat.y, CGRectGetWidth(lab.frame), CGRectGetHeight(lab.frame))];
 }
+
+
+// Log文本方法，无实际用途
+- (NSString *)newString:(NSString *)str {
+    
+    NSString *newStr = [NSString stringWithFormat:@"----%@----", str];
+    return newStr;
+}
+
 
 @end
