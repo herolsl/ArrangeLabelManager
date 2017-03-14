@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ArrangeLabelManager.h"
+#import "ColorSlider.h"
 
 @interface ViewController ()
 
@@ -31,6 +32,16 @@
     [reset setTitle:@"重置" forState:UIControlStateNormal];
     [reset addTarget:self action:@selector(reloadLabels) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:reset];
+    
+    ColorSlider *slider = [[ColorSlider alloc] initWithFrame:CGRectMake(0, 400, CGRectGetWidth(self.view.frame), 60)];
+//    slider.backgroundColor = [UIColor whiteColor];
+    NSArray *arr = @[[UIColor redColor], [UIColor blueColor], [UIColor greenColor], [UIColor darkGrayColor]];
+    slider.colors = arr;
+    slider.numLevels = @[@"哈哈80cm", @"阿斯蒂芬90cm", @"违法100cm"];
+    slider.stringLevels = @[@"偏瘦", @"标准", @"偏胖", @"肥胖"];
+    slider.sliderValue = 89;
+    [self.view addSubview:slider];
+
 
 }
 
